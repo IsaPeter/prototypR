@@ -1,4 +1,4 @@
-# prototypR
+# PrototypR
 
 Prototype Pollution Detector Tool
 
