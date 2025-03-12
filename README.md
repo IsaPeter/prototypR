@@ -38,6 +38,10 @@ Check The result:
 - Execute: `Object.prototype`
 
 
+![image](https://github.com/user-attachments/assets/b220220a-a3df-4d97-9bb3-cb0cc65646bc)
+
+-----
+
 # PPSignature
 
 Signature based detection
