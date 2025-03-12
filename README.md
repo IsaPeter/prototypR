@@ -9,7 +9,7 @@ Prototype Pollution Detector Tool
 
 ## Example Usage
 
-Implement and example vulnerable fragment of code [Link](https://github.com/BlackFan/client-side-prototype-pollution/blob/master/pp/jquery-parseparam.md)
+Implement and example vulnerable fragment of code [BlackFan Client-Side Prototype Pollution](https://github.com/BlackFan/client-side-prototype-pollution/blob/master/pp/jquery-parseparam.md)
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -36,3 +36,6 @@ Check The result:
 - Navigate to the affected url copied from the tool result
 - Open Browser Console [`F12`]
 - Execute: `Object.prototype`
+
+![image](https://github.com/user-attachments/assets/34051295-a7f6-4e37-89dc-5b379c7b71ee)
+
