@@ -9,7 +9,7 @@ Prototype Pollution Detector Tool
 
 ## Example Usage
 
-Implement and example vulnerable fragment of code [Link](https://github.com/BlackFan/client-side-prototype-pollution/blob/master/pp/jquery-parseparam.md)
+Implement an example vulnerable fragment of code [Link](https://github.com/BlackFan/client-side-prototype-pollution/blob/master/pp/jquery-parseparam.md)
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
