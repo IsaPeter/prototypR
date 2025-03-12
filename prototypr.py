@@ -59,22 +59,6 @@ def check_urls(url_list, payloads, proxy, headers, headless):
     for url in url_list:
         for sep in separators:
             for name,payload,id,checker in payloads:
-                """
-                if sep == "?":
-                    if "?" in url:
-                        if "#" in url:
-                            first,second = url.split("#",1)
-                            final_url = f"{first}&{payload}#{second}"
-                        else:
-                            final_url = f"{url}&{payload}"
-                    else:
-                        final_url = f"{url}{sep}{payload}"
-                else:
-                    if "#" in url:
-                        final_url = f"{url}&{payload}"
-                    else:
-                        final_url = f"{url}{sep}{payload}"
-                """
                 final_url = build_url(url,payload,sep)
               
                 with sync_playwright() as p:

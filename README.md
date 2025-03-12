@@ -9,7 +9,7 @@ Prototype Pollution Detector Tool
 
 ## Example Usage
 
-Implement and example vulnerable fragment of code [BlackFan Client-Side Prototype Pollution](https://github.com/BlackFan/client-side-prototype-pollution/blob/master/pp/jquery-parseparam.md)
+Implement and example vulnerable fragment of code [Link](https://github.com/BlackFan/client-side-prototype-pollution/blob/master/pp/jquery-parseparam.md)
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -37,5 +37,30 @@ Check The result:
 - Open Browser Console [`F12`]
 - Execute: `Object.prototype`
 
-![image](https://github.com/user-attachments/assets/34051295-a7f6-4e37-89dc-5b379c7b71ee)
+
+# PPSignature
+
+Signature based detection
+
+**Check Single URL**
+
+```bash
+python3 ppsignature.py -u "https://raw.githack.com/cowboy/jquery-bbq/8e0064ba68a34bcd805e15499cb45de3f4cc398d/jquery.ba-bbq.js"
+[*] Potentially Vulnerable JS found! (jQuery BBQ (deparam) Prototype Pollution)
+[*] Potentially Vulnerable JS found! (deparam Prototype Pollution)
+```
+
+**Check URL List**
+
+```bash
+python3 ppsignature.py -ul /tmp/urls                                                                                                               
+[*] Potentially Vulnerable JS found! (davis.js Prototype Pollution)
+[*] Potentially Vulnerable JS found! (jQuery Sparkle Prototype Pollution)
+[*] Potentially Vulnerable JS found! (jQuery BBQ (deparam) Prototype Pollution)
+[*] Potentially Vulnerable JS found! (deparam Prototype Pollution)
+```
+
+
+
+
 

@@ -374,7 +374,10 @@ class HTTPRequestSender:
                     proxies=self.proxies,  # Proxy alkalmazása
                     allow_redirects=self.allow_redirects
                 )
-                return HTTPResponse(response=response)
+                if self.return_raw_response:
+                    return response
+                else:
+                    return HTTPResponse(response=response)
             else:
                 data = request_obj.body
 
@@ -389,7 +392,10 @@ class HTTPRequestSender:
             allow_redirects=self.allow_redirects
         )
 
-        return HTTPResponse(response=response)
+        if self.return_raw_response:
+            return response
+        else:
+            return HTTPResponse(response=response)
 
 
     def get(self, url, headers=None, timeout=None, proxies=None, allow_redirects=None, return_raw_response=False):
@@ -401,13 +407,13 @@ class HTTPRequestSender:
             proxies=proxies or self.proxies,
             allow_redirects=allow_redirects or self.allow_redirects
         )
-        if not return_raw_response:
+        if not return_raw_response and not self.return_raw_response:
             return HTTPResponse(response=response)
         else:
             return response
 
 
-    def query_url(self, url, method="GET", headers=None, timeout=None, proxies=None, allow_redirects=None):
+    def query_url(self, url, method="GET", headers=None, timeout=None, proxies=None, allow_redirects=None, return_raw_response=False):
         response = requests.request(
             method=method.upper(),
             url=url,
@@ -417,4 +423,8 @@ class HTTPRequestSender:
             allow_redirects=allow_redirects or self.allow_redirects
         )
 
-        return HTTPResponse(response=response)
+        if not return_raw_response and not self.return_raw_response:
+            return HTTPResponse(response=response)
+        else:
+            return response
+
