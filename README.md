@@ -3,6 +3,7 @@
 Prototype Pollution Detector Tool
 
 - This tool is use the following research: [s1r1us PP Research](https://blog.s1r1us.ninja/research/PP)
+- The prototype_checker.js file was copied from: [cspp-tools](https://github.com/BlackFan/cspp-tools/blob/main/prototype_checker/prototype_checker.js)
 
 
 
