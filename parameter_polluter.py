@@ -8,7 +8,7 @@ def parse_arguments ():
     parser.add_argument("-p","--parameters", dest="parameters", metavar="", help="Parameters for poisoning")
     parser.add_argument("-j", "--json", dest="json_parameters", metavar="", help="Specify JSON dictionary to poison")
     parser.add_argument("-pp","--prototype-pollution", dest="prototype_pollution", action="store_true", help="Generate Prototype pollution payloads")
-
+    parser.add_argument("--wrap", dest="wrap", action="store_true", help="Wrap Prototype pollution payloads")
     return parser.parse_args()
 
 def generate_random():
@@ -173,8 +173,9 @@ def main():
         duplicate_array(params)
         url_encode_first(params)
         coma_separate_values(params)
-        if args.prototype_pollution: 
-            prototype_pollution(params)
+        if args.prototype_pollution:
+            wrap = args.wrap if args.wrap else False
+            prototype_pollution(params, wrap_proto=wrap)
 
     if args.json_parameters:
         if args.json_parameters.startswith("{") and args.json_parameters.endswith("}"):
