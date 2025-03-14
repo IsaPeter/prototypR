@@ -84,7 +84,7 @@ options:
 Generate polluter parameters from `foo=bar&bar=baz` and append prototype pollution payloads too
 
 ```bash
-python3 parammer.py -p 'foo=bar&bar=baz' -pp
+python3 parameter_polluter.py -p 'foo=bar&bar=baz' -pp
 foo=bar&foo=IrZFbp3EhFwgVEJY&bar=baz
 foo=bar&bar=baz&bar=s5PFsDRw8DwUdAWd
 foo[]=bar&foo[]=8qbNQZXidrBJz0zR&bar=baz
@@ -102,7 +102,7 @@ bar=baz&foo=bar&__proto__.polluted=Z74dgWmQeVeJJ4aK
 The same generation but in this case the input and the output structure is a JSON data structure
 
 ```js
-python3 parammer.py -j '{"username":"patrick","role":"user"}' -pp
+python3 parameter_polluter.py -j '{"username":"patrick","role":"user"}' -pp
 {"username": ["patrick", "Of4PXVStDWmBjVwt"], "role": "user"}
 {"username": "patrick", "role": ["user", "aColnFU3lZaDiDyV"]}
 {"username": {"username": "patrick", "unecpected": "VAZyqFSRQxItUmSO"}, "role": "user"}
